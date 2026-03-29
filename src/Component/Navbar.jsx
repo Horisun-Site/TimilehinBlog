@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import useTheme from "../hooks/useTheme";
-import { Sun, Moon, Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -15,76 +12,78 @@ const Navbar = () => {
 
       {/* DESKTOP MENU */}
       <div className="hidden md:flex items-center gap-6">
-        <a href="/home" className="hover:text-blue-500 transition-colors duration-300">Home</a>
-        <a href="/blog" className="hover:text-blue-500 transition-colors duration-300">Blog</a>
-        <a href="/about" className="hover:text-blue-500 transition-colors duration-300">About</a>
-        <a href="/create" className="hover:text-blue-500 transition-colors duration-300">Create Post</a>
-
-        {/* 🌗 Theme Toggle */}
-        <button
-          onClick={toggleTheme}
-          className={`p-2 rounded-lg transition-all duration-500 hover:scale-110
-            ${theme === "dark" ? "bg-blue-600" : "bg-white border border-blue-600"}
-          `}
+        <a
+          href="/home"
+          className="hover:text-blue-500 transition-colors duration-300"
         >
-          {theme === "dark" ? (
-            <Sun size={18} className="text-white transition-transform duration-500" />
-          ) : (
-            <Moon size={18} className="text-blue-600 transition-transform duration-500" />
-          )}
-        </button>
+          Home
+        </a>
+        <a
+          href="/blog"
+          className="hover:text-blue-500 transition-colors duration-300"
+        >
+          Blog
+        </a>
+        <a
+          href="/about"
+          className="hover:text-blue-500 transition-colors duration-300"
+        >
+          About
+        </a>
+        <a
+          href="/create"
+          className="hover:text-blue-500 transition-colors duration-300"
+        >
+          Create Post
+        </a>
       </div>
 
-      {/* MOBILE MENU BUTTONS */}
-      <div className="flex md:hidden items-center gap-3">
-        {/* Theme Toggle */}
-        <button
-          onClick={toggleTheme}
-          className={`p-2 rounded-lg transition-all duration-500 hover:scale-110
-            ${theme === "dark" ? "bg-blue-600" : "bg-white border border-blue-600"}
-          `}
-        >
-          {theme === "dark" ? (
-            <Sun size={18} className="text-white transition-transform duration-500" />
-          ) : (
-            <Moon size={18} className="text-blue-600 transition-transform duration-500" />
-          )}
-        </button>
-
-        {/* Hamburger / X Button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className={`p-2 rounded-lg transition-all duration-500 hover:scale-110 flex items-center justify-center
-            ${theme === "dark" ? "bg-blue-600" : "bg-white border border-blue-600"}
-          `}
-        >
-          {isOpen ? (
-            <X
-              size={22}
-              className={`${theme === "dark" ? "text-white" : "text-blue-600"} transition-transform duration-300 rotate-90`}
-            />
-          ) : (
-            <Menu
-              size={22}
-              className={`${theme === "dark" ? "text-white" : "text-blue-600"} transition-transform duration-300 rotate-0`}
-            />
-          )}
-        </button>
-      </div>
+      {/* MOBILE MENU BUTTON */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="md:hidden text-2xl text-gray-700 dark:text-gray-200"
+      >
+        {isOpen ? "✕" : "☰"}
+      </button>
 
       {/* MOBILE DROPDOWN */}
       <div
         className={`absolute top-[70px] left-0 w-full flex-col items-center gap-5 py-6 md:hidden transition-all duration-500 border-t
-          ${isOpen
-            ? "flex opacity-100 visible bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700"
-            : "hidden opacity-0 invisible"
+          ${
+            isOpen
+              ? "flex opacity-100 visible bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700"
+              : "hidden opacity-0 invisible"
           }
         `}
       >
-        <a href="/home" onClick={() => setIsOpen(false)} className="hover:text-blue-500 transition-colors duration-300">Home</a>
-        <a href="/blog" onClick={() => setIsOpen(false)} className="hover:text-blue-500 transition-colors duration-300">Blog</a>
-        <a href="/about" onClick={() => setIsOpen(false)} className="hover:text-blue-500 transition-colors duration-300">About</a>
-        <a href="/create" onClick={() => setIsOpen(false)} className="hover:text-blue-500 transition-colors duration-300">Create Post</a>
+        <a
+          href="/home"
+          onClick={() => setIsOpen(false)}
+          className="hover:text-blue-500 transition-colors duration-300"
+        >
+          Home
+        </a>
+        <a
+          href="/blog"
+          onClick={() => setIsOpen(false)}
+          className="hover:text-blue-500 transition-colors duration-300"
+        >
+          Blog
+        </a>
+        <a
+          href="/about"
+          onClick={() => setIsOpen(false)}
+          className="hover:text-blue-500 transition-colors duration-300"
+        >
+          About
+        </a>
+        <a
+          href="/create"
+          onClick={() => setIsOpen(false)}
+          className="hover:text-blue-500 transition-colors duration-300"
+        >
+          Create Post
+        </a>
       </div>
     </nav>
   );

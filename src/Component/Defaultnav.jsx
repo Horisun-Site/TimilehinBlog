@@ -1,10 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useTheme from "../hooks/useTheme";
-import { Sun, Moon } from "lucide-react";
+
 
 const Defaultnav = () => {
-  const { theme, toggleTheme } = useTheme();
 
   return (
     <nav
@@ -65,21 +63,6 @@ const Defaultnav = () => {
           Register
         </Link>
 
-        {/* 🌗 Theme Toggle */}
-        <button
-          onClick={toggleTheme}
-          className={`
-            p-1.5 sm:p-2 rounded-lg 
-            transition-all duration-500 hover:scale-110
-            ${theme === "dark" ? "bg-blue-600" : "bg-white border border-blue-600"}
-          `}
-        >
-          {theme === "dark" ? (
-            <Sun size={18} className="text-white transition-transform duration-500" />
-          ) : (
-            <Moon size={18} className="text-blue-600 transition-transform duration-500" />
-          )}
-        </button>
       </div>
     </nav>
   );

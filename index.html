@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+  (function() {
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.classList.add(saved);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.add('light');
+      }
+    } catch (e) { /* ignore */ }
+  })();
+</script>
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/timperfect.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>timi</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

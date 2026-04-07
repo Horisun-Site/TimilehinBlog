@@ -171,7 +171,7 @@ const DetailsPage = () => {
         {/* 🔙 Back Button */}
         <div className="flex justify-center">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/home")}
             className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-lg font-medium rounded-xl shadow-md transition"
           >
             ← Back to Posts
